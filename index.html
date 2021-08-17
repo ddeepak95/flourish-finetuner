@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Audio Fine Tuning - Flourish</title>
+  <script type='text/javascript' src='js/FileSaver.js'></script>
+  <script type='text/javascript' src='js/jquery-1.11.3.min.js'></script>
+  <script type='text/javascript' src='js/popcorn-complete.min.js'></script>
+  <script type='text/javascript' src='js/app-builder-menus.js'></script>
+  <script type='text/javascript' src='js/app-builder-timings.js'></script>
+  <script type='text/javascript' src='js/mousetrap.min.js'></script>
+
+
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="manifest" href="img/site.webmanifest">
+</head>
+
+<body class="browser">
+  <div id="book-menu"></div>
+  <div id="chapter-menu"></div>
+  <div id="toolbar-top">
+    <div class="navigation-top">
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="pop-up">
+          <div class="modal-head">
+            <h2>Select Files</h2>
+            <span class="close">&times;</span>
+          </div>
+          <div>
+            Select Phrase File: <input type="file" name="inputfile" id="inputPhrasefile">
+          </div>
+          <div>
+            Select Timing File:
+            <input type="file" name="inputfile" id="inputTimingfile">
+          </div>
+          <div>
+            Select Audio: <input id="audio_file" type="file" accept="audio/*" />
+          </div>
+          <p id="validation-text"></p>
+          <div class="btn-div">
+            <button class="modal-btn" onclick="loadTextToUI()">Load Data</button>
+          </div>
+        </div>
+      </div>
+      <span><img width="150px" src="img/logo.png" /></span>
+      <span id="book-selector">&nbsp;&nbsp;Audio Fine Tuning&nbsp;&nbsp;</span>
+      <!-- Trigger/Open The Modal -->
+      <button id="myBtn">Load Files</button>
+    </div>
+  </div>
+  <div id="content">
+  </div>
+  <div id="toolbar-bottom">
+    <div class="audio-speed-selector">
+      <select id='audio-speed' class='combobox' onChange='onAudioSpeedChange()'>
+        <option value='1.4'>1.4x</option>
+        <option value='1.3'>1.3x</option>
+        <option value='1.2'>1.2x</option>
+        <option value='1.1'>1.1x</option>
+        <option value='1.0' selected>Normal</option>
+        <option value='0.9'>0.9x</option>
+        <option value='0.8'>0.8x</option>
+        <option value='0.7'>0.7x</option>
+        <option value='0.6'>0.6x</option>
+        <option value='0.5'>0.5x</option>
+      </select>
+    </div>
+    <div class="audio-player">
+      <audio id="audio" controls>
+        <source id="audio1" />
+      </audio>
+    </div>
+  </div>
+  <script type='text/javascript' src='js/index.js'></script>
+</body>
+
+</html>

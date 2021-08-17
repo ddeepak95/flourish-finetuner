@@ -1,0 +1,421 @@
+@font-face {
+    font-family: font1;
+    src: url('../fonts/AndikaAPac-R.ttf');
+    font-weight: normal; font-style: normal; 
+}
+
+body {
+    font-family:font1; direction:ltr; font-size:20px; 
+    font-weight:normal; font-style:normal; 
+    color:TextColor; 
+    margin-top:16px; margin-bottom:10px; margin-left:0; margin-right:0;
+}
+
+table.timings { 
+    border:1px solid #DDDDDD;
+    border-collapse:collapse;
+    width:100%;
+}
+
+.timing-row { 
+    vertical-align: middle;
+}
+
+.timing-row.selected:hover {
+    background-color: #FFFF20;
+    cursor: pointer;
+}
+
+.timing-row.selected {
+    background-color: #FFFF99;
+}
+
+.timing-row:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.timing-row-header {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size:15px;
+    font-weight:bold;
+    background-color: #E0E0E0;
+}
+
+.timing-cell { 
+    border:1px solid #DDDDDD; 
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.timing-cell-header { 
+    border:1px solid #DDDDDD; 
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.increase { 
+    padding:2px 8px 2px 8px; 
+}
+
+.decrease {
+    padding:2px 8px 2px 8px; 
+}
+
+.timing-buttons {
+   white-space: nowrap;
+}
+
+.timing-button {
+    background-color: #E0E0E0;
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    margin-top: 2px;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+}
+
+.timing-button .button-tooltip {
+    visibility: hidden;
+	  font-family: Arial, Helvetica, sans-serif;
+	  font-size: 0.8em;
+    background-color: #707070;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    top: 130%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.timing-button .button-tooltip::after {
+	/* Top arrow */
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #707070 transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.timing-button:hover .button-tooltip {
+    visibility: visible;
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    -ms-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    padding-left: 20px; padding-right: 20px;
+}
+
+#toolbar-top {
+    background: #FAFAFA;
+    border-bottom: 1px solid #DDD;
+    -moz-box-shadow: 0 5px 5px -5px #CCC;
+    -webkit-box-shadow: 0 5px 5px -5px #CCC;
+    box-shadow: 0 5px 5px -5px #CCC;
+    top: 0px;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    z-index: 10;
+}
+
+#content {
+    max-width: 800px;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 80px auto 150px;
+}
+
+#toolbar-bottom {
+    background: #FAFAFA;
+    border-top: 1px solid #DDD;
+    -moz-box-shadow: 0 -5px 5px -5px #CCC;
+    -webkit-box-shadow: 0 -5px 5px -5px #CCC;
+    box-shadow: 0 -5px 5px -5px #CCC;
+    bottom: 0px;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.audio-player {
+    padding-top: 20px;
+    padding-bottom: 12px;
+}
+
+.audio-speed-selector {
+    padding-right: 20px;
+}
+#audio-speed {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    height: 28px;
+    padding: 4px;
+}
+.navigation-top {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.button {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #CCCCCC;
+    background: #F0F0F0;
+    padding: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-decoration: none;
+    color: #808080;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #DDDDDD;
+}
+
+.button a:link, .button a:visited {
+    text-decoration: none;
+    color: #808080;
+	  font-weight: bold;
+}
+
+#button-save {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    float: right;
+}
+.selectable {
+    cursor: pointer;
+}
+#chapter-selector {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #CCCCCC;
+    background: #F0F0F0;
+    padding: 2px;
+    margin-left:2px;
+    margin-right:12px;
+    text-decoration: none;
+    color: #808080;
+    font-weight: bold;
+    cursor: pointer;	
+}
+#chapter-selector a {
+    text-decoration:none;
+    color: inherit;
+}
+#chapter-selector:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+}
+
+#book-menu {
+    position: absolute;
+    visibility: hidden;
+    overflow: auto;
+    border: 1px solid #D0D0D0;
+    background-color: #F9F9F9;
+    padding: 5px;
+    -webkit-box-shadow: 2px 2px 5px 0px #e0e0e0;
+    -moz-box-shadow: 2px 2px 5px 0px #e0e0e0;
+    box-shadow: 2px 2px 5px 0px #e0e0e0;
+    z-index: 999;
+}
+#chapter-menu {
+    position: absolute;
+    visibility: hidden;
+    overflow: auto;
+    border: 1px solid #D0D0D0;
+    background-color: #F9F9F9;
+    padding: 5px;
+    -webkit-box-shadow: 2px 2px 5px 0px #e0e0e0;
+    -moz-box-shadow: 2px 2px 5px 0px #e0e0e0;
+    box-shadow: 2px 2px 5px 0px #e0e0e0;
+    z-index: 999;
+}
+.book-menu-item {
+    color: black;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.book-menu-item a {
+    text-decoration:none;
+    color: inherit;
+    width: 100%;
+    display: block;
+}
+.book-menu-item:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+.chapter-table {
+    table-layout: fixed;
+    width: 100%;
+    border: none;
+}
+.chapter-menu-cell {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.chapter-menu-item {
+    text-align: center;
+    color: black;
+    background-color: #EEEEEE;
+    width: 100%;
+    display: block;
+    border: 1px solid #E0E0E0;
+    padding: 6px 0px 6px 0px;
+}
+.chapter-menu-item a {
+    text-decoration:none;
+    color: inherit;
+    width: 100%;
+    display: block;
+}
+.chapter-menu-item:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+}
+.intro-menu-item {
+    color: black;
+    background-color: #EEEEEE;
+    text-align: center;
+    border: 1px solid #E0E0E0;
+    padding: 4px 6px 4px 6px;
+    margin: 2px 2px 2px 4px;
+}
+.intro-menu-item a {
+    text-decoration:none;
+    color: inherit;
+    width: 100%;
+    display: block;
+}
+.intro-menu-item:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .pop-up{
+      width: 400px;
+      background: white;
+      margin: auto;
+      padding: 20px;
+      text-align: left;
+      font-size: 16px;
+  }
+
+  .pop-up div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0px;
+  }
+
+  .pop-up .modal-head{
+      /* display: block; */
+      width: 100%;
+      margin: 0px;
+  }
+
+
+
+  .modal-head h2{
+      margin: 0px;
+  }
+
+  .modal .btn-div{
+      justify-content: center;
+  }
+
+  .modal .modal-btn{
+      padding: 10px 30px;
+  }
+
+  #myBtn
+  {
+    padding: 10px 20px;
+
+  }
+
+  #validation-text{
+      text-align: center;
+  }
