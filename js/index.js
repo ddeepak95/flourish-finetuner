@@ -105,11 +105,14 @@ function parseTimingFileContent(text) {
     tContent = text;
     const result = tContent.split('\n');
     var tArrayLength = outputTextArray.length;
-    var resultArrayLength = result.length;
+    console.log(outputTextArray);
+    var resultNew = result.filter(Boolean);
+    console.log(resultNew);
+    var resultArrayLength = resultNew.length;
     console.log(tArrayLength + " === " + resultArrayLength);
     if (tArrayLength == resultArrayLength) {
-      for (var i = 0; i < resultArrayLength; i++) {
-        var timingLine = result[i].split('	');
+      for (var i = 0; i < tArrayLength; i++) {
+        var timingLine = resultNew[i].split('	');
         var label = timingLine[2].replace('\r', '');
         if (outputTextArray[i].label === label) {
           outputTextArray[i].start = timingLine[0];
